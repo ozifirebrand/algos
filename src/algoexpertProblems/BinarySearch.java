@@ -1,4 +1,4 @@
-package algoeexpertProblems;
+package algoexpertProblems;
 
 public class BinarySearch {
     public static void findMinAndMax(int [] values, int aValue){
