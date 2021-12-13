@@ -16,6 +16,7 @@ public class TournamentGame {
         int homePlayerIndex = 0;
         int additionalPoint = 3;
 
+
         Map<String, Integer> playersMap = new HashMap<>();
 
         for (int index = 0; index< competitions.size(); index++){
