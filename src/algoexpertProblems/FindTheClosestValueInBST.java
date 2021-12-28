@@ -2,10 +2,20 @@ package algoexpertProblems;
 
 public class FindTheClosestValueInBST {
     public static int findClosestValueInBst(BST tree, int target){
-        int whatever = Math.abs(tree.value - target);
-        if ( tree.value == whatever);
 
-        return -1;
+        int nodeValue = tree.value;
+
+        int firstValueDifference = Math.abs(nodeValue - target);
+
+        if ( tree.right != null && target >= nodeValue ) tree.value = tree.right.value;
+
+        else if ( tree.left != null && target < nodeValue ) tree.value = tree.left.value;
+
+        int secondValueDifference = Math.abs(tree.value - target);
+        if ( firstValueDifference > secondValueDifference ) return tree.value;
+
+
+        return nodeValue;
     }
     static class BST{
         public int value;
