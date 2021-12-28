@@ -3,19 +3,22 @@ package algoexpertProblems;
 public class FindTheClosestValueInBST {
     public static int findClosestValueInBst(BST tree, int target){
 
-        int nodeValue = tree.value;
+        while ( tree.right != null && tree.left != null) {
+            int initialNodeValue = tree.value;
+            int currentNodeValue;
 
-        int firstValueDifference = Math.abs(nodeValue - target);
+            int firstValueDifference = Math.abs(initialNodeValue - target);
 
-        if ( tree.right != null && target >= nodeValue ) tree.value = tree.right.value;
+            if ( target >= initialNodeValue ) currentNodeValue = tree.right.value;
 
-        else if ( tree.left != null && target < nodeValue ) tree.value = tree.left.value;
+            else tree.value = tree.left.value;
 
-        int secondValueDifference = Math.abs(tree.value - target);
-        if ( firstValueDifference > secondValueDifference ) return tree.value;
+            int secondValueDifference = Math.abs(tree.value - target);
 
+            if ( secondValueDifference > firstValueDifference ) tree.value = initialNodeValue;
 
-        return nodeValue;
+        }
+        return tree.value;
     }
     static class BST{
         public int value;
