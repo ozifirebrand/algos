@@ -1,27 +1,44 @@
 package algoexpertProblems;
 
 public class FindTheClosestValueInBST {
-    public static int findClosestValueInBst(BST tree, int target){
-        BST initialNode = tree;
-        BST currentNode ;
+    public static int findClosestValueInBst(BST tree, int target) {
 
-        while ( initialNode.right != null && initialNode.left != null) {
+        // Write your code here.
+        BST currentTree = tree;
+        int firstValueDifference;
+        int secondValueDifference;
+        int closestValue = 0;
+        while (currentTree != null) {
 
-            int firstValueDifference = Math.abs(initialNode.value - target);
+            if ( target < currentTree.value && currentTree.left != null ) {
 
-            if ( target >= initialNode.value ) currentNode= tree.right;
+                currentTree = currentTree.left;
+                firstValueDifference = Math.abs(currentTree.value - target);
 
-            else currentNode = tree.left;
+            }
+            else if ( target > currentTree.value && currentTree.right != null ) {
 
-            int secondValueDifference = Math.abs(currentNode.value - target);
+                currentTree = currentTree.right;
+                firstValueDifference = Math.abs(currentTree.value - target);
 
-            if ( secondValueDifference < firstValueDifference ) tree = currentNode;
+            }
 
-            else tree = initialNode;
+            else return currentTree.value;
+
+            secondValueDifference = Math.abs(closestValue - target);
+
+            if ( firstValueDifference < secondValueDifference ) closestValue = currentTree.value;
+
+
+//            else if ( firstValueDifference > secondValueDifference ){
+
+//            }
+
         }
-        return tree.value;
+        return closestValue;
     }
-    static class BST{
+
+        static class BST{
         public int value;
         public BST left;
         public BST right;
@@ -29,6 +46,5 @@ public class FindTheClosestValueInBST {
         public BST(int value){
             this.value = value;
         }
-
     }
 }
