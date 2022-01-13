@@ -10,4 +10,12 @@ public class BinarySearch {
             }
         }
     }
+
+    public static void main(String[] args) {
+        int [] firstArray = {5, 4, 3, 6};
+
+        int value = 3;
+
+        findMinAndMax(firstArray, value);
+    }
 }
