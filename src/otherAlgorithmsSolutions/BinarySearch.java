@@ -4,11 +4,11 @@ public class BinarySearch {
     public static void findMinAndMax(int [] values, int aValue){
         int maximum= values.length;
         int minimum=0;
-        for (int number: values){
-            if ( maximum<minimum ){
-                break;
-            }
-        }
+//        for (int number: values){
+//            if ( maximum<minimum ){
+//                break;
+//            }
+//        }
     }
 
     public static void main(String[] args) {
