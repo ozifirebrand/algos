@@ -17,6 +17,7 @@ public class ThreeSum {
                 if( currentSum == targetSum){
                     Integer [] arrayOfSums = {array[index] , array[left], array[right]};
                     triplets.add(arrayOfSums);
+                    System.out.println(Arrays.toString(arrayOfSums));
                     right--;
                     left++;
                 }
@@ -34,6 +35,6 @@ public class ThreeSum {
 
     public static void main(String[] args) {
         int [] anArray = {12, 3, 1, 2, -6, 5, -8, 6};
-        System.out.println(threeNumberSum(anArray, 0));
+        System.out.println(threeNumberSum(anArray, 13));
     }
 }
