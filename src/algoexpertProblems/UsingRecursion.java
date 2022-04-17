@@ -25,7 +25,7 @@ public class UsingRecursion {
     }
 
     public static int[] reverseStack(int[] array, int first, int last){
-        if ( first == last ){
+        if ( first > last ){
             return array;
         }
         int saved = array[first];
@@ -45,13 +45,24 @@ public class UsingRecursion {
         return sum + sumElement(array, index );
     }
 
+    public static int maximumElement(int [] array, int index, int currentMaxNumber){
+         int maxElement = Integer.MIN_VALUE;
+        if ( index > array.length-1 ) return currentMaxNumber;
+        if ( array[index] > currentMaxNumber ){ maxElement = array[index];
+        currentMaxNumber = maxElement;}
+        index++;
+        return maximumElement(array, index, currentMaxNumber);
+    }
+
 
     public static void main(String[] args) {
+        int maxElemt = Integer.MIN_VALUE;
         System.out.println(factorial(5));
         System.out.println(exponential(2, 13));
         System.out.println(exponentialIteration(12, 13));
-        int [] normalArray = new int[]{4, 2, 0, 4, 1, 8, 9};
+        int [] normalArray = new int[]{4, 2, 0, 4, 22, 14, 1, 8, 9};
         System.out.println(Arrays.toString(reverseStack(normalArray, 0, normalArray.length-1)));
         System.out.println(sumElement(normalArray, 0));
+        System.out.println(maximumElement(normalArray, 0, maxElemt));
     }
 }
