@@ -37,6 +37,14 @@ public class UsingRecursion {
         return array;
     }
 
+    public static int sumElement(int [] array, int index){
+        int sum = 0;
+        if ( array.length == index ) return sum;
+        sum += array[index];
+        index ++;
+        return sum + sumElement(array, index );
+    }
+
 
     public static void main(String[] args) {
         System.out.println(factorial(5));
@@ -44,5 +52,6 @@ public class UsingRecursion {
         System.out.println(exponentialIteration(12, 13));
         int [] normalArray = new int[]{4, 2, 0, 4, 1, 8, 9};
         System.out.println(Arrays.toString(reverseStack(normalArray, 0, normalArray.length-1)));
+        System.out.println(sumElement(normalArray, 0));
     }
 }
