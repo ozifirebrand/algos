@@ -55,18 +55,9 @@ public class UsingRecursion {
     }
 
     public static List<Integer> towerOfHanoi
-            (int index, List<Integer> source, List<Integer> spare, List<Integer> dest) {
-        /*
-        transfer top of source to spare
-        remove transferred element from source
-        transfer other parts to spare and delete them from source
-        if source contains no element, remove elements from spare
-        transfer elements from spare to dest
-        remove transferred elements from spare
-        if source or spare remain one element, send it to dest
-        if source and spare are empty, return dest
-        */
-        return towerOfHanoi( index, source, spare, dest );
+            (int index, List<Integer> source, List<Integer> dest, List<Integer> spare) {
+
+            return dest;
     }
 
 
